@@ -1,0 +1,9 @@
+FROM eclipse-temurin:17-jre-jammy
+WORKDIR /app
+
+RUN useradd -r -u 1000 -s /sbin/nologin spring
+COPY --chown=spring:spring target/*.jar app.jar
+USER spring
+
+EXPOSE 8080
+ENTRYPOINT ["java","-XX:MaxRAMPercentage=70.0","-XX:+UseSerialGC","-jar","app.jar"]
