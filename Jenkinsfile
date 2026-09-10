@@ -143,12 +143,12 @@ pipeline {
                         CI=true npm test -- --watchAll=false --passWithNoTests \
                             --coverage --coverageReporters=lcov --coverageReporters=text-summary || true
 
-                        # CRA treats warnings as errors when CI=true, which Jenkins sets
+                        export NODE_OPTIONS=--openssl-legacy-provider
                         CI=false npm run build
                     '''
                 }
-            }
-        }
+    }
+}
 
         stage('Frontend - SonarQube') {
             steps {
