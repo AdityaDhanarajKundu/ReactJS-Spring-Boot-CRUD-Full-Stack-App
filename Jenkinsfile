@@ -41,7 +41,7 @@ pipeline {
     }
 
     // Uncomment to poll instead of using a GitHub webhook (keeps Jenkins private):
-    // triggers { pollSCM('H/3 * * * *') }
+    triggers { pollSCM('H/3 * * * *') }
 
     environment {
         // ------------------- EDIT THESE FOUR -------------------
